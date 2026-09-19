@@ -50,6 +50,9 @@ class Cart:
         
         raise KeyError("No such item in the cart")
 
+    def clear(self) -> None:
+        self.lines.clear()
+
     def total(self) -> float:
         return round(sum(line["price"] * line["qty"] for line in self.lines), 2)
 
@@ -85,3 +88,4 @@ if __name__ == "__main__":
         cart.remove_item(444)
     except KeyError as e:
         print(f"Rejected: {e}")
+
